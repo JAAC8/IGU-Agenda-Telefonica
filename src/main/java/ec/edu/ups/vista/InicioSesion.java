@@ -11,6 +11,7 @@ package ec.edu.ups.vista;
  */
 public class InicioSesion extends javax.swing.JFrame {
 
+    private MenuUsuario mU;
     /**
      * Creates new form InicioSesion
      */
@@ -36,7 +37,8 @@ public class InicioSesion extends javax.swing.JFrame {
         lblPresentacion = new javax.swing.JLabel();
         lblMensaje = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setLocation(new java.awt.Point(575, 125));
 
         lblCorreo.setText("Correo:");
 
@@ -60,9 +62,6 @@ public class InicioSesion extends javax.swing.JFrame {
             .addGroup(panelPrincipalLayout.createSequentialGroup()
                 .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelPrincipalLayout.createSequentialGroup()
-                        .addGap(142, 142, 142)
-                        .addComponent(btnIniciarSesion))
-                    .addGroup(panelPrincipalLayout.createSequentialGroup()
                         .addGap(91, 91, 91)
                         .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblPresentacion, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -70,10 +69,11 @@ public class InicioSesion extends javax.swing.JFrame {
                                 .addComponent(txtCorreo, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
                                 .addComponent(lblContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(pfContrasena)
-                                .addComponent(lblCorreo))))
+                                .addComponent(lblCorreo))
+                            .addComponent(lblMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(panelPrincipalLayout.createSequentialGroup()
-                        .addGap(122, 122, 122)
-                        .addComponent(lblMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(142, 142, 142)
+                        .addComponent(btnIniciarSesion)))
                 .addContainerGap(97, Short.MAX_VALUE))
         );
         panelPrincipalLayout.setVerticalGroup(
@@ -112,9 +112,19 @@ public class InicioSesion extends javax.swing.JFrame {
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
         // TODO add your handling code here:
-        
+        if(mU==null){
+            mU = new MenuUsuario();
+        }
+        mU.setVisible(true);
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
+    public String getCorreo(){
+        return this.txtCorreo.getText();
+    }
+    public String getContrasena(){
+        return this.pfContrasena.getText();
+    }
+    
     /**
      * @param args the command line arguments
      */
